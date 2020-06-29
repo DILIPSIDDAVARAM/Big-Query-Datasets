@@ -111,6 +111,7 @@ def create_datasets(**kwargs):
             dataset_id = project_id + "." + dataset_id
             try:
                 bq_client.get_dataset(dataset_id)
+                print("Dataset {} already exists.".format(dataset_id))
             except NotFound:
                 dataset = bigquery.Dataset(dataset_id)
                 dataset.location = properties["location"]

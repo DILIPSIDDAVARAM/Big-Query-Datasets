@@ -22,6 +22,12 @@ BigQuery Admin
 BigQuery Data Transfer Service Agent
 Storage Admin
 ```
+6. Environment Variables
+```
+BQ_TRANSFER_USER_ACCOUNT  "<email-id>"
+DEFAULT_SERVICE_ACCOUNT   "<default-service-account-email>"
+SERVICE_ACCOUNT_PATH      "path-to-service-account-json-key-file"
+```
 
 ### Installing
 1. A step by step guide from Google Cloud Documentation for [Cloud SDK Setup](https://cloud.google.com/sdk/docs/how-to). 

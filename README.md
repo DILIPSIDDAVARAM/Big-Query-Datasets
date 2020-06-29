@@ -33,6 +33,15 @@ SERVICE_ACCOUNT_PATH      "path-to-service-account-json-key-file"
 1. A step by step guide from Google Cloud Documentation for [Cloud SDK Setup](https://cloud.google.com/sdk/docs/how-to). 
 2. A step by step guide from Google Cloud Documentation for [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
 
+## Deployment
+1. [bq_dataset_create](dataset_operations/src/python/bq_dataset_create.py)
+```
+For single dataset creation
+$ python bq_dataset_create.py --project_id certain-region-281614 --dataset_list test_dataset --location EU --description 'Created From Console' --default_table_expiration_ms 3600000 --labels '{"mode":"console", "type":"test"}'
+For multiple datasets creation
+$ python bq_dataset_create.py --project_id certain-region-281614 --dataset_list 'test_dataset_one test_dataset_two' --location EU --description 'Created From Console' --default_table_expiration_ms 3600000 --labels '{"mode":"console", "type":"test"}'
+```
+
 ## Authors
 
 * **Dilip Siddavaram** - *Initial work* - [DILIPSIDDAVARAM](https://github.com/DILIPSIDDAVARAM)

@@ -41,6 +41,13 @@ $ python bq_dataset_create.py --project_id certain-region-281614 --dataset_list 
 For multiple datasets creation
 $ python bq_dataset_create.py --project_id certain-region-281614 --dataset_list 'test_dataset_one test_dataset_two' --location EU --description 'Created From Console' --default_table_expiration_ms 3600000 --labels '{"mode":"console", "type":"test"}'
 ```
+2. [bq_dataset_update](dataset_operations/src/python/bq_dataset_update.py)
+```
+For single dataset updation
+$ python dataset_update.py --project_id certain-region-281614 --dataset_list test_dataset --access_controls '{"role":"READER","entity_type":"userByEmail","entity_id":"mytrial98@gmail.com"}'
+For multiple datasets updation with similar properties
+$ python dataset_update.py --project_id certain-region-281614 --dataset_list 'test_dataset_one test_dataset_two' --description 'Updated From Console' --default_table_expiration_ms 4000000 --labels '{"mode":"shell"}'
+```
 
 ## Authors
 

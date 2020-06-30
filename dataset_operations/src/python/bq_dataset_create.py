@@ -50,6 +50,7 @@ def cmd_args_parser():
         type=str,
         action="store",
         dest="description",
+        default=None,
         help="Provide a description surrounded by quotes.",
         required=False,
     )
@@ -68,6 +69,7 @@ def cmd_args_parser():
         type=str,
         action="store",
         dest="labels",
+        default=None,
         help='Format supported: \'{"key":"value"}\'.',
         required=False,
     )
@@ -117,10 +119,9 @@ def create_datasets(**kwargs):
                 dataset.location = properties["location"]
                 dataset.description = properties["description"]
                 dataset.labels = properties["labels"]
-                if properties["default_table_expiration_ms"]:
-                    dataset.default_table_expiration_ms = properties[
-                        "default_table_expiration_ms"
-                    ]
+                dataset.default_table_expiration_ms = properties[
+                    "default_table_expiration_ms"
+                ]
                 dataset = bq_client.create_dataset(dataset)
     except Exception as e:
         print("Exception occurred: {}".format(e))

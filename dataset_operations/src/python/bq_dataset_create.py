@@ -158,7 +158,7 @@ class Dataset_Create:
             properties=properties,
         )
         print(
-            "Dataset creation success criteria is {}.\nHelp: 0-SUCCESS, 1-FAIL".format(
+            "Dataset(s) creation success criteria is {}.\nHelp: 0-SUCCESS, 1-FAIL".format(
                 dataset_creation_flag
             )
         )

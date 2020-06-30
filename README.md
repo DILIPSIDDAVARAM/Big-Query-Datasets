@@ -36,17 +36,28 @@ SERVICE_ACCOUNT_PATH      "path-to-service-account-json-key-file"
 ## Deployment
 1. [bq_dataset_create](dataset_operations/src/python/bq_dataset_create.py)
 ```
-For single dataset creation
+Test-Case #1: Single dataset creation
 $ python bq_dataset_create.py --project_id certain-region-281614 --dataset_list test_dataset --location EU --description 'Created From Console' --default_table_expiration_ms 3600000 --labels '{"mode":"console", "type":"test"}'
-For multiple datasets creation
+Test-Case #2: Multiple datasets creation
 $ python bq_dataset_create.py --project_id certain-region-281614 --dataset_list 'test_dataset_one test_dataset_two' --location EU --description 'Created From Console' --default_table_expiration_ms 3600000 --labels '{"mode":"console", "type":"test"}'
 ```
 2. [bq_dataset_update](dataset_operations/src/python/bq_dataset_update.py)
 ```
-For single dataset updation
-$ python dataset_update.py --project_id certain-region-281614 --dataset_list test_dataset --access_controls '{"role":"READER","entity_type":"userByEmail","entity_id":"mytrial98@gmail.com"}'
-For multiple datasets updation with similar properties
-$ python dataset_update.py --project_id certain-region-281614 --dataset_list 'test_dataset_one test_dataset_two' --description 'Updated From Console' --default_table_expiration_ms 4000000 --labels '{"mode":"shell"}'
+Test-Case #1: Single dataset updation
+$ python bq_dataset_update.py --project_id certain-region-281614 --dataset_list test_dataset --access_controls '{"role":"READER","entity_type":"userByEmail","entity_id":"mytrial98@gmail.com"}'
+Test-Case #2: Multiple datasets updation with similar properties
+$ python bq_dataset_update.py --project_id certain-region-281614 --dataset_list 'test_dataset_one test_dataset_two' --description 'Updated From Console' --default_table_expiration_ms 4000000 --labels '{"mode":"shell"}'
+```
+3. [bq_dataset_delete](dataset_operations/src/python/bq_dataset_delete.py)
+```
+Test-Case #1: Datasets deletion with keyword and filter = all (by default)
+$ python bq_dataset_delete.py --project_id certain-region-281614 --delete_contents true --keyword properties
+Test-Case #2: Datasets deletion with keyword and filter = choose 
+$ python bq_dataset_delete.py --project_id certain-region-281614 --delete_contents true --dataset_list 'test_dataset_one test_dataset_two' --keyword one --filter choose
+Test-Case #3: Datasets deletion with keyword and filter = ignore 
+$ python bq_dataset_delete.py --project_id certain-region-281614 --delete_contents true --dataset_list 'test_dataset test_dataset_two' --keyword two --filter ignore
+Test-Case #4: Datasets deletion with no keyword and filter = all (by default) 
+$ python bq_dataset_delete.py --project_id certain-region-281614 --delete_contents true
 ```
 
 ## Authors

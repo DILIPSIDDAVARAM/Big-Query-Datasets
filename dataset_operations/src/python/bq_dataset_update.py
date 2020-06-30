@@ -106,7 +106,7 @@ def update_datasets(**kwargs):
     :param project_id: GCP Project_Id (type:str)
     :param datasets: List of Datasets (type:list)
     :param properties: Dataset Properties (type:dict)
-    :return dataset_creation_flag: {0:SUCCESS, 1:FAIL} (type:int)
+    :return dataset_updation_flag: {0:SUCCESS, 1:FAIL} (type:int)
     """
     bq_client = kwargs.get("bq_client")
     project_id = kwargs.get("project_id")
@@ -183,7 +183,7 @@ class Dataset_Update:
         bq_credentials = service_account.Credentials.from_service_account_info(info)
         # Creating Big Query Client
         bq_client = bigquery.Client(project=project_id, credentials=bq_credentials)
-        # Creating datasets
+        # Updating datasets
         dataset_updation_flag = update_datasets(
             bq_client=bq_client,
             project_id=project_id,
@@ -191,7 +191,7 @@ class Dataset_Update:
             properties=properties,
         )
         print(
-            "Dataset updation success criteria is {}.\nHelp: 0-SUCCESS, 1-FAIL".format(
+            "Dataset(s) updation success criteria is {}.\nHelp: 0-SUCCESS, 1-FAIL".format(
                 dataset_updation_flag
             )
         )

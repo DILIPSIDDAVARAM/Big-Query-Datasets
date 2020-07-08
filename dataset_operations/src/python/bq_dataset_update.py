@@ -29,7 +29,7 @@ def cmd_args_parser():
     )
     parser.add_argument(
         "--dataset_list",
-        type=str,
+        type=str.split,
         action="store",
         dest="dataset_list",
         help="Provide list of dataset names separated by whitespace.",
@@ -93,7 +93,7 @@ def cmd_args_parser():
     properties["access_controls"] = access_controls
     # Define param_key -> param_value pairs
     cmdargs["project_id"] = args.project_id
-    cmdargs["datasets"] = args.dataset_list.split()
+    cmdargs["datasets"] = args.dataset_list
     cmdargs["properties"] = properties
 
     return cmdargs

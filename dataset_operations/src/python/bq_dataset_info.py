@@ -29,17 +29,17 @@ def cmd_args_parser():
     )
     parser.add_argument(
         "--datasets",
-        type=str.split,
+        type=str,
         action="store",
         dest="datasets",
-        help="Provide list of dataset names separated by whitespace.",
+        help="Provide list of dataset names separated by comma.",
         required=True,
     )
     args = parser.parse_args()
     cmdargs = {}
     # Define param_key -> param_value pairs
     cmdargs["project_id"] = args.project_id
-    cmdargs["datasets"] = args.datasets
+    cmdargs["datasets"] = args.datasets.split(",")
 
     return cmdargs
 
@@ -118,7 +118,7 @@ class Dataset_Update:
             bq_client=bq_client, project_id=project_id, datasets=datasets,
         )
         print(
-            "Dataset updation success criteria is {}.\nHelp: 0-SUCCESS, 1-FAIL".format(
+            "Dataset information retrieval success criteria is {}.\nHelp: 0-SUCCESS, 1-FAIL".format(
                 dataset_information_flag
             )
         )

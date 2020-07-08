@@ -59,6 +59,13 @@ $ python bq_dataset_delete.py --project_id certain-region-281614 --delete_conten
 Test-Case #4: Datasets deletion with no keyword and filter = all (by default) 
 $ python bq_dataset_delete.py --project_id certain-region-281614 --delete_contents true
 ```
+4. [bq_dataset_info](dataset_operations/src/python/bq_dataset_info.py)
+```
+Test-Case #1: Getting information for single dataset
+$ python bq_dataset_info.py --project_id unique-atom-251817 --datasets properties_uy
+Test-Case #2: Getting information for multiple datasets
+$ python bq_dataset_info.py --project_id unique-atom-251817 --datasets 'properties_ar,properties_co'
+```
 
 ## Authors
 

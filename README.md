@@ -14,6 +14,7 @@ The repository contains modules developed in Python environment collaborated wit
 google-cloud-bigquery              1.17.1
 google-cloud-bigquery-datatransfer 1.0.0
 google-cloud-storage               1.28.1
+google-cloud-secret-manager        1.0.0
 ```
 4. Google Cloud Project (s)
 5. Store Service Account JSON Key in Secret Manager.
@@ -69,6 +70,13 @@ Test-Case #1: Getting information for single dataset
 $ python bq_dataset_info.py --project_id unique-atom-251817 --datasets properties_uy
 Test-Case #2: Getting information for multiple datasets
 $ python bq_dataset_info.py --project_id unique-atom-251817 --datasets 'properties_ar,properties_co'
+```
+4. [bq_data_movement](dataset_operations/src/python/bq_data_movement.py)
+```
+Test-Case #1: Migrating datasets
+$ python bq_data_movement.py --config_file dataset_operations/config/migration_config.json --type datasets
+Test-Case #2: Migrating tables
+$ python bq_data_movement.py --config_file dataset_operations/config/migration_config.json --type tables
 ```
 
 ## Authors

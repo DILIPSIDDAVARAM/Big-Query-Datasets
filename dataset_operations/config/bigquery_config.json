@@ -1,47 +1,43 @@
 {
     "migration": {
-        "source_project_id": "unique-atom-251817",
-        "target_project_id": "certain-region-281614",
-        "secret_manager_project": "unique-atom-251817",
-        "secret_key": "sa_creds",
-        "default_account": "162324453473-compute@developer.gserviceaccount.com",
-        "bq_data_transfer_account": "mytrial98@gmail.com",
-        "copy_script": "/home/trial_user/Big-Query-Datasets/dataset_operations/src/shell/bq_data_transfer.sh",
+        "source_project_id": "<YOUR-SOURCE-PROJECT-ID>",
+        "target_project_id": "<YOUR-TARGET-PROJECT-ID>",
+        "secret_manager_project": "<YOUR-SECRET-MANAGER-PROJECT-ID>",
+        "secret_key": "<YOUR-SECRET-KEY>",
+        "default_account": "<YOUR-INSTANCE-DEFAULT-ACCOUNT>",
+        "bq_data_transfer_account": "<YOUR-BIG-QUERY-DATASET-TRANSFER-ACCOUNT>",
+        "copy_script": "/Big-Query-Datasets/dataset_operations/src/shell/bq_data_transfer.sh",
         "datasets": [
-            "properties_ar",
-            "properties_br",
-            "properties_cl"
+            "<YOUR-LIST-OF-DATASETS-TO-BE-MIGRATED>",
+            "DATASET_NAME_1",
+            "DATASET_NAME_N"
         ],
         "tables": [
-            "properties_co.properties_rent_201501",
-            "properties_mx.properties_rent_201502",
-            "properties_pe.properties_rent_201503",
-            "properties_uy.properties_rent_201504"
+            "<YOUR-LIST-OF-TABLES-TO-BE-MIGRATED>",
+            "DATASET_NAME_1.TABLE_NAME_1",
+            "DATASET_NAME_N.TABLE_NAME_N"
         ]
     },
     "backup": {
         "projects_dict": {
-            "unique-atom-251817": {
-                "bucket_name": "bigquery_backup_test_one",
+            "project_id_one": {
+                "bucket_name": "<YOUR-BUCKET-NAME>",
                 "backup_pattern": {
-                    "properties_ar": "all",
-                    "properties_br": [
-                        "properties_rent_201501",
-                        "properties_rent_201502",
-                        "properties_rent_201503",
-                        "properties_rent_201504"
+                    "dataset_name_one": "all",
+                    "dataset_name_two": [
+                        "<YOUR-LIST-OF-TABLES-TO-BE-MENTIONED-HERE>",
+                        "TABLE_NAME_1",
+                        "TABLE_NAME_N"
                     ]
                 }
             },
-            "certain-region-281614": {
-                "bucket_name": "bigquery_backup_test_two",
+            "project_id_two": {
+                "bucket_name": "<YOUR-BUCKET-NAME>",
                 "backup_pattern": {
-                    "properties_cl": "all",
-                    "properties_co": [
-                        "properties_rent_201505",
-                        "properties_rent_201506",
-                        "properties_rent_201507",
-                        "properties_rent_201508"
+                    "dataset_name_one": [
+                        "<YOUR-LIST-OF-TABLES-TO-BE-MENTIONED-HERE>",
+                        "TABLE_NAME_1",
+                        "TABLE_NAME_N"
                     ]
                 }
             }

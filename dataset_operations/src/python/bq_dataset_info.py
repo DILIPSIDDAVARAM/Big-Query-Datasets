@@ -2,13 +2,10 @@
 # coding: utf-8
 """Importing python libraries"""
 import argparse
-import json
-import os
 
 """Importing google cloud libraries """
 from google.cloud import bigquery
 from google.cloud.exceptions import NotFound
-from google.oauth2 import service_account
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -105,14 +102,8 @@ class Dataset_Update:
         :param project_id: Project-Id (type:str)
         :param datasets: Datasets List (type:list)
         """
-        # Getting service account path from environment variable
-        service_account_key_file = os.getenv("SERVICE_ACCOUNT_PATH")
-        # Setting auth for GCP from service account
-        with open(service_account_key_file) as key:
-            info = json.load(key)
-        bq_credentials = service_account.Credentials.from_service_account_info(info)
         # Creating Big Query Client
-        bq_client = bigquery.Client(project=project_id, credentials=bq_credentials)
+        bq_client = bigquery.Client(project=project_id)
         # Getting information of datasets
         dataset_info, dataset_information_flag = get_dataset_info(
             bq_client=bq_client, project_id=project_id, datasets=datasets,

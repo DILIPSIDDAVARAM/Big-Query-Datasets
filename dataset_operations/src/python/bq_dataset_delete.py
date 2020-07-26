@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 """Importing Libraries"""
-import json
-import os
 import sys
 from google.cloud import bigquery
-from google.oauth2 import service_account
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -62,21 +59,12 @@ class Dataset_Delete:
         project_id = str(project_id)
         if keyword:
             keyword = str(keyword)
-        # Getting service account path from environment variable
-        service_account_key_file = os.getenv("SERVICE_ACCOUNT_PATH")
-        # Setting auth for GCP from service account
-        with open(service_account_key_file) as source:
-            info = json.load(source)
-        bq_credentials = service_account.Credentials.from_service_account_info(info)
         # Creating Big Query Client
-        client = bigquery.Client(project=project_id, credentials=bq_credentials)
+        client = bigquery.Client(project=project_id)
         # Get list of datasets for project
         datasets = list_all_datasets(bq_client=client)
         # Delete datasets if exist
         if datasets:
-            # Switch to User Account
-            user_account = os.getenv("BQ_TRANSFER_USER_ACCOUNT")
-            os.system("gcloud config set account {}".format(user_account))
             # Delete datasets based on keyword presence
             if keyword:
                 datasets = [dataset for dataset in datasets if keyword in dataset]
@@ -94,9 +82,6 @@ class Dataset_Delete:
                     bq_client=client, project_id=project_id, datasets=datasets
                 )
             print(exec_flag)
-            # Switch to Default Account
-            default_account = os.getenv("DEFAULT_SERVICE_ACCOUNT")
-            os.system("gcloud config set account {}".format(default_account))
 
 
 if __name__ == "__main__":

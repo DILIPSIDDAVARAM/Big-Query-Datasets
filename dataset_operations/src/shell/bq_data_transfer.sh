@@ -1,5 +1,3 @@
-
-echo "Big Query Transfer Config running..."
 # Reading command-line arguments
 target_project_id=${1}
 target_dataset_id=${2}

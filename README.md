@@ -73,9 +73,16 @@ $ python bq_dataset_info.py --project_id unique-atom-251817 --datasets 'properti
 5. [bq_data_movement](dataset_operations/src/python/bq_data_movement.py)
 ```
 Test-Case #1: Migrating datasets
-$ python bq_data_movement.py --config_file dataset_operations/config/migration_config.json --type datasets
+$ python bq_data_movement.py --config_file dataset_operations/config/bigquery_config.json --type datasets
 Test-Case #2: Migrating tables
-$ python bq_data_movement.py --config_file dataset_operations/config/migration_config.json --type tables
+$ python bq_data_movement.py --config_file dataset_operations/config/bigquery_config.json --type tables
+```
+6. [bq_dataset_export](dataset_operations/src/python/bq_dataset_export.py)
+```
+Test-Case #1: Backup of datasets from the configuration-file with daily retention and expiration set to False
+$ python bq_dataset_export.py --config_file dataset_operations/config/bigquery_config.json --retention daily --backup_type config --expiration False
+Test-Case #2: Backup of all datasets with weekly retention and expiration set to True
+$ python bq_dataset_export.py --config_file dataset_operations/config/bigquery_config.json --retention weekly --backup_type all --expiration True
 ```
 
 ## Authors

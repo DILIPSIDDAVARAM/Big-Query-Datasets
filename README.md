@@ -16,22 +16,26 @@ google-cloud-bigquery-datatransfer 1.0.0
 google-cloud-storage               1.28.1
 ```
 4. Google Cloud Project (s)
-5. Service Account with permissions (JSON)
+5. Store Service Account JSON Key in Secret Manager.
+   Required Permissions:
 ```
-BigQuery Admin
-BigQuery Data Transfer Service Agent
+BigQuery Editor
+```
+6. User Account
+```
+BigQuery Admin (includes bigquery.transfers.update permission)
+```
+7. Compute Engine Service Account
+```
+Big Query Admin
 Storage Admin
-```
-6. Environment Variables
-```
-BQ_TRANSFER_USER_ACCOUNT  "<email-id>"
-DEFAULT_SERVICE_ACCOUNT   "<default-service-account-email>"
-SERVICE_ACCOUNT_PATH      "path-to-service-account-json-key-file"
+Secret Manager Admin
 ```
 
 ### Installing
 1. A step by step guide from Google Cloud Documentation for [Cloud SDK Setup](https://cloud.google.com/sdk/docs/how-to). 
 2. A step by step guide from Google Cloud Documentation for [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
+3. A step by step guide from Google Cloud Documentation for [Secret Manager Setup](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets#secretmanager-create-secret-web).
 
 ## Deployment
 1. [bq_dataset_create](dataset_operations/src/python/bq_dataset_create.py)

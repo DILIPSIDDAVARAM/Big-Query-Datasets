@@ -17,16 +17,15 @@ google-cloud-storage               1.28.1
 google-cloud-secret-manager        1.0.0
 ```
 4. Google Cloud Project (s)
-5. Store Service Account JSON Key in Secret Manager.
-   Required Permissions:
+5. Store Service Account JSON Key with following permissions in Secret Manager.
 ```
 BigQuery Editor
 ```
-6. User Account
+6. User Account with following permissions
 ```
 BigQuery Admin (includes bigquery.transfers.update permission)
 ```
-7. Compute Engine Service Account
+7. Compute Engine Service Account with following permissions
 ```
 Big Query Admin
 Storage Admin
@@ -71,7 +70,7 @@ $ python bq_dataset_info.py --project_id unique-atom-251817 --datasets propertie
 Test-Case #2: Getting information for multiple datasets
 $ python bq_dataset_info.py --project_id unique-atom-251817 --datasets 'properties_ar,properties_co'
 ```
-4. [bq_data_movement](dataset_operations/src/python/bq_data_movement.py)
+5. [bq_data_movement](dataset_operations/src/python/bq_data_movement.py)
 ```
 Test-Case #1: Migrating datasets
 $ python bq_data_movement.py --config_file dataset_operations/config/migration_config.json --type datasets

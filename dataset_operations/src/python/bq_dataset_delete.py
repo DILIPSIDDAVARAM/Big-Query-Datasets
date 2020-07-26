@@ -1,11 +1,47 @@
 #!/usr/bin/env python
 # coding: utf-8
 """Importing Libraries"""
+import argparse
 import sys
-from google.cloud import bigquery
 import warnings
 
 warnings.filterwarnings("ignore")
+
+"""Importing google cloud libraries """
+from google.cloud import bigquery
+
+
+def cmd_args_parser():
+    """Parsing command-line arguments"""
+    parser = argparse.ArgumentParser(
+        prog="DatasetDeletor", description="Deletes datasets",
+    )
+    parser.add_argument(
+        "--project_id",
+        type=str,
+        action="store",
+        dest="project_id",
+        help="Provide Google Cloud Project-Id.",
+        required=True,
+    )
+    parser.add_argument(
+        "--keyword",
+        type=str,
+        action="store",
+        dest="keyword",
+        default=None,
+        help="Provide keyword to identify dataset names for deletion.",
+        required=False,
+    )
+
+    args = parser.parse_args()
+    cmdargs = {}
+
+    # Define param_key -> param_value pairs
+    cmdargs["project_id"] = args.project_id
+    cmdargs["keyword"] = args.keyword
+
+    return cmdargs
 
 
 def list_all_datasets(bq_client=None):
@@ -85,12 +121,5 @@ class Dataset_Delete:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        project_id = sys.argv[1]
-        Dataset_Delete().main(project_id=project_id)
-    elif len(sys.argv) == 3:
-        project_id = sys.argv[1]
-        keyword = sys.argv[2]
-        Dataset_Delete().main(project_id=project_id, keyword=keyword)
-    else:
-        print("Enter valid number of arguments!")
+    cmdargs = cmd_args_parser()
+    Dataset_Delete().main(project_id=cmdargs["project_id"], keyword=cmdargs["keyword"])

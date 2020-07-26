@@ -1,0 +1,21 @@
+{
+    "migration": {
+        "source_project_id": "<YOUR-SOURCE-PROJECT-ID>",
+        "target_project_id": "<YOUR-TARGET-PROJECT-ID>",
+        "secret_manager_project": "<YOUR-SECRET-MANAGER-PROJECT-ID>",
+        "secret_key": "<YOUR-SECRET-KEY>",
+        "default_account": "<YOUR-INSTANCE-DEFAULT-ACCOUNT>",
+        "bq_data_transfer_account": "<YOUR-BIG-QUERY-DATASET-TRANSFER-ACCOUNT>",
+        "copy_script": "/Big-Query-Datasets/dataset_operations/src/shell/bq_data_transfer.sh",
+        "datasets": [
+            "<YOUR-LIST-OF-DATASETS-TO-BE-MIGRATED>",
+            "DATASET_NAME_1",
+            "DATASET_NAME_N"
+        ],
+        "tables": [
+            "<YOUR-LIST-OF-TABLES-TO-BE-MIGRATED>",
+            "DATASET_NAME_1.TABLE_NAME_1",
+            "DATASET_NAME_N.TABLE_NAME_N"
+        ]
+    }
+}

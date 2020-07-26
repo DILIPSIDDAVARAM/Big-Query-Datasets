@@ -175,7 +175,7 @@ class Dataset_Update:
         """
         # Creating Big Query Client
         bq_client = bigquery.Client(project=project_id)
-        # Creating datasets
+        # Updating datasets
         dataset_updation_flag = update_datasets(
             bq_client=bq_client,
             project_id=project_id,

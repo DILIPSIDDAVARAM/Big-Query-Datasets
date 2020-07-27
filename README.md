@@ -31,6 +31,10 @@ Big Query Admin
 Storage Admin
 Secret Manager Admin
 ```
+8. Environment Variables
+```
+GOOGLE_APPLICATION_CREDENTIALS = /path/to/compute-engine-service-account/key.json
+```
 
 ### Installing
 1. A step by step guide from Google Cloud Documentation for [Cloud SDK Setup](https://cloud.google.com/sdk/docs/how-to). 

@@ -45,5 +45,33 @@
         "location": "US",
         "schema_uri": "gs://{bucket_name}/{retention}/{dataset_name}/{timestamp}/schema/{schema_file_name}",
         "table_uri": "gs://{bucket_name}/{retention}/{dataset_name}/{timestamp}/data/{table_file_name}"
+    },
+    "restore": {
+        "projects_dict": {
+            "project_id_one": {
+                "bucket_name": "<YOUR-BUCKET-NAME>",
+                "restore_pattern": {
+                    "dataset_name_one": "all",
+                    "dataset_name_two": [
+                        "<YOUR-LIST-OF-TABLES-TO-BE-MENTIONED-HERE>",
+                        "TABLE_NAME_1",
+                        "TABLE_NAME_N"
+                    ]
+                }
+            },
+            "project_id_two": {
+                "bucket_name": "<YOUR-BUCKET-NAME>",
+                "restore_pattern": {
+                    "dataset_name_one": [
+                        "<YOUR-LIST-OF-TABLES-TO-BE-MENTIONED-HERE>",
+                        "TABLE_NAME_1",
+                        "TABLE_NAME_N"
+                    ]
+                }
+            }
+        },
+        "location": "US",
+        "schema_uri": "gs://{bucket_name}/{retention}/{dataset_name}/{timestamp}/schema/{schema_file_name}",
+        "table_uri": "gs://{bucket_name}/{retention}/{dataset_name}/{timestamp}/data/{table_file_name}"
     }
 }

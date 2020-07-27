@@ -350,7 +350,7 @@ if __name__ == "__main__":
             print("Could not start new tasks: {}".format(e))
 
     print(
-        "For clients: {}, total number of processes executed: {}".format(
+        "For projects: {}, total number of processes executed: {}".format(
             num_workers, process_call_count
         )
     )

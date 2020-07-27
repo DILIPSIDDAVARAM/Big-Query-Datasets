@@ -83,10 +83,17 @@ $ python bq_data_movement.py --config_file dataset_operations/config/bigquery_co
 ```
 6. [bq_dataset_export](dataset_operations/src/python/bq_dataset_export.py)
 ```
-Test-Case #1: Backup of datasets from the configuration-file with daily retention and expiration set to False
-$ python bq_dataset_export.py --config_file dataset_operations/config/bigquery_config.json --retention daily --backup_type config --expiration False
-Test-Case #2: Backup of all datasets with weekly retention and expiration set to True
-$ python bq_dataset_export.py --config_file dataset_operations/config/bigquery_config.json --retention weekly --backup_type all --expiration True
+Test-Case #1: Backup of datasets for more than one project from the configuration-file with daily retention and expiration set to False
+$ python bq_dataset_export.py --project_id 'project_id_one project_id_two' --config_file dataset_operations/config/bigquery_config.json --retention daily --backup_type config --expiration False
+Test-Case #2: Backup of all datasets for one project with weekly retention and expiration set to True
+$ python bq_dataset_export.py --project_id project_id_one --config_file dataset_operations/config/bigquery_config.json --retention weekly --backup_type all --expiration True
+```
+7. [bq_table_import](dataset_operations/src/python/bq_table_import.py)
+```
+Test-Case #1: Restore of datasets for more than one project from the configuration-file with daily retention
+$ python bq_table_import.py --project_id 'project_id_one project_id_two' --config_file dataset_operations/config/bigquery_config.json --retention daily --restore_type config --date 2020-07-26
+Test-Case #2: Restore of all datasets for one project with weekly retention
+$ python bq_table_import.py --project_id project_id_one --config_file dataset_operations/config/bigquery_config.json --retention weekly --restore_type all --date 2019-07-26
 ```
 
 ## Authors

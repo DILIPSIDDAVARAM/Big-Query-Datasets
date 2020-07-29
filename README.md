@@ -1,6 +1,5 @@
-# Project Title
+# Big-Query-Datasets
 
-Big-Query-Datasets
 
 ## Getting Started
 The repository contains modules developed in Python environment collaborated with Google Cloud SDK to manage the Google BigQuery datasets.
